@@ -1,0 +1,39 @@
+{
+    "name": "chrome-plugin-template",
+    "description": "chrome plugin template",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16" : "images/icon.png",
+            "32" : "images/icon.png",
+            "48" : "images/icon.png",
+            "128": "images/icon.png"
+        }
+    },
+    "icons": {
+        "16" : "images/icon.png",
+        "32" : "images/icon.png",
+        "48" : "images/icon.png",
+        "128": "images/icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "injection.js"
+            ],
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}
